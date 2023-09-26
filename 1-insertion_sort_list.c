@@ -9,30 +9,30 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-        listint_t *iter, *insert, *tmp;
+	listint_t *iter, *insert, *tmp;
 
-        if (list == NULL || *list == NULL || (*list)->next == NULL)
-                return;
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
+		return;
 
-        for (iter = (*list)->next; iter != NULL; iter = tmp)
-        {
-                tmp = iter->next;
-                insert = iter->prev;
+	for (iter = (*list)->next; iter != NULL; iter = tmp)
+	{
+		tmp = iter->next;
+		insert = iter->prev;
 
-                while (insert != NULL && iter->n < insert->n)
-                {
-                        swap_nodes(list, &insert, iter);
-                        print_list((const listint_t *)*list);
-                }
-        }
+		while (insert != NULL && iter->n < insert->n)
+		{
+			swap_nodes(list, &insert, iter);
+			print_list((const listint_t *)*list);
+		}
+	}
 }
 
 
 /**
  * swap_nodes - Swap two nodes in a listint_t doubly-linked list.
- * @h: A pointer to the head of the doubly-linked list.
- * @n1: A pointer to the first node to swap.
- * @n2: The second node to swap.
+ * @head: A pointer to the head of the doubly-linked list.
+ * @node1: A pointer to the first node to swap.
+ * @node2: The second node to swap.
  */
 void swap_nodes(listint_t **head, listint_t **node1, listint_t *node2)
 {
