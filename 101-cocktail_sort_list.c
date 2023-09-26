@@ -24,14 +24,14 @@ void cocktail_sort_list(listint_t **list) {
         sorted = true;
         for (shaker = *list; shaker != tail; shaker = shaker->next) {
             if (shaker->n > shaker->next->n) {
-                swap_nodes(list, &tail, &shaker);
+                swap_node_ahead(list, &tail, &shaker);
                 print_list(*list);
                 sorted = false;
             }
         }
         for (shaker = tail; shaker != *list; shaker = shaker->prev) {
             if (shaker->n < shaker->prev->n) {
-                swap_nodes(list, &tail, &(shaker->prev));
+                swap_node_behind(list, &tail, &(shaker->prev));
                 print_list(*list);
                 sorted = false;
             }
