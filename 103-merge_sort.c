@@ -46,13 +46,13 @@ void merge_subarr(int *subarr, int *buff, size_t front, size_t mid, size_t back)
 	printf("[right]: ");
 	print_array(subarr + mid, back - mid);
 
-	for (x = front, y = mid; x < mid && y < back; k++)
-		buff[k] = (subarr[x] < subarr[y]) ? subarr[x++] : subarr[y++];
+	for (x = front, y = mid; x < mid && y < back; z++)
+		buff[z] = (subarr[x] < subarr[y]) ? subarr[x++] : subarr[y++];
 	for (; x < mid; x++)
 		buff[z++] = subarr[x];
 	for (; y < back; y++)
 		buff[z++] = subarr[y];
-	for (x = front, k = 0; x < back; x++)
+	for (x = front, z = 0; x < back; x++)
 		subarr[x] = buff[z++];
 
 	printf("[Done]: ");
