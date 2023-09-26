@@ -1,17 +1,46 @@
 #include "sort.h"
-                                                           /**
- * main - Entry point                                       *
- * Return: Always 0 (successful)
+
+/**
+ * swap_ints - Swap two integers in an array.
+ * @a: The first integer to swap.
+ * @b: The second integer to swap.
  */
-void bubble_sort(int *array, size_t size)                  {                                                                  int i, j;
-        for (i = 0; i < n - 1; i++)
-        {
-                for (j = 0; j < n - i - 1; j++)                            {
-                        if (arr[j] > arr[j + 1])                                   {
-                                int temp = arr[j];
-                                arr[j] = arr[j + 1];
-                                arr[j + 1] = temp
-                        }
-                }                                                  }                                                  }                                                          int main()                                                 {
-        int arr[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};                  int n = sizeof(arr) / sizeof(arr[0]);                      bubble_sort(arr, n);                                       printf("Sorted array: ");                                  for (int i = 0; i < n; i++)                                {                                                                  printf("%d ", arr[i]);                             }
-        return 0;
+void swap_ints(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+/**
+ * bubble_sort - Sort an array of integers in ascending order.
+ * @array: An array of integers to sort.
+ * @size: The size of the array.
+ *
+ * Description: Prints the array after each swap.
+ */
+void bubble_sort(int *array, size_t size)
+{
+	size_t i, len = size;
+	bool bubbly = false;
+
+	if (array == NULL || size < 2)
+		return;
+
+	while (bubbly == false)
+	{
+		bubbly = true;
+		for (i = 0; i < len - 1; i++)
+		{
+			if (array[i] > array[i + 1])
+			{
+				swap_ints(array + i, array + i + 1);
+				print_array(array, size);
+				bubbly = false;
+			}
+		}
+		len--;
+	}
+}
